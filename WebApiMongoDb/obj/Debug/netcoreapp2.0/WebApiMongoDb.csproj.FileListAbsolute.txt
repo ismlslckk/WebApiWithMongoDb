@@ -1,0 +1,11 @@
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\bin\Debug\netcoreapp2.0\WebApiMongoDb.deps.json
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\bin\Debug\netcoreapp2.0\WebApiMongoDb.runtimeconfig.json
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\bin\Debug\netcoreapp2.0\WebApiMongoDb.runtimeconfig.dev.json
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\bin\Debug\netcoreapp2.0\WebApiMongoDb.dll
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\bin\Debug\netcoreapp2.0\WebApiMongoDb.pdb
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\obj\Debug\netcoreapp2.0\WebApiMongoDb.csprojResolveAssemblyReference.cache
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\obj\Debug\netcoreapp2.0\WebApiMongoDb.csproj.CoreCompileInputs.cache
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\obj\Debug\netcoreapp2.0\WebApiMongoDb.AssemblyInfoInputs.cache
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\obj\Debug\netcoreapp2.0\WebApiMongoDb.AssemblyInfo.cs
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\obj\Debug\netcoreapp2.0\WebApiMongoDb.dll
+C:\Users\İsmail\Source\Repos\WebApiMongoDb\WebApiMongoDb\obj\Debug\netcoreapp2.0\WebApiMongoDb.pdb
