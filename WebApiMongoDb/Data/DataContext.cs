@@ -8,13 +8,12 @@ namespace WebApiMongoDb.Data
 {
     public class DataContext
     {
-        private readonly MongoClient _mongoClient;
         private readonly IMongoDatabase _mongoDatabase;
 
         public DataContext()
         {
-            _mongoClient = new MongoClient("mongodb://localhost:27017");
-            _mongoDatabase = _mongoClient.GetDatabase("Deneme");
+            var mongoClient = new MongoClient("mongodb://localhost:27017");
+            _mongoDatabase = mongoClient.GetDatabase("Library");
         }
 
         public IMongoDatabase Database()

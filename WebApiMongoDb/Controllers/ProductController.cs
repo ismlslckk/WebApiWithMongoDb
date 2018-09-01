@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using WebApiMongoDb.DaoImpl;
-using WebApiMongoDb.DAO;
+ 
 using WebApiMongoDb.Models;
 using MongoDB.Bson;
+using WebApiMongoDb.Dao;
 
 namespace WebApiMongoDb.Controllers
 {

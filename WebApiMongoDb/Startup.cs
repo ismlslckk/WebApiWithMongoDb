@@ -10,9 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApiMongoDb.Dao;
 using WebApiMongoDb.DaoImpl;
 using WebApiMongoDb.Data;
-using WebApiMongoDb.DAO;
+ 
 
 namespace WebApiMongoDb
 {
@@ -37,7 +38,8 @@ namespace WebApiMongoDb
             builders.Populate(services);
             
             builders.RegisterType<DataContext>().SingleInstance();
-            builders.RegisterType<ProductDaoImpl>().As<IProductDao>().SingleInstance();
+            builders.RegisterType<ProductDaoImpl>().As<IProductDao>().SingleInstance(); 
+            builders.RegisterType<BookDaoImpl>().As<IBookDao>().SingleInstance(); 
            
 
             var container = builders.Build();
