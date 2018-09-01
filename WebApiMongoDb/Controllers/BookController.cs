@@ -31,9 +31,9 @@ namespace WebApiMongoDb.Controllers
         }
 
         [HttpPost("listByFeatures")]
-        public IActionResult ListByFeatures([FromForm]Book b)
+        public IActionResult ListByFeatures([FromForm]Book b,string orderBy)
         {
-            return Ok(_bookDao.ListByFeatures(b));
+            return Ok(_bookDao.ListByFeatures(b,orderBy));
         }
 
         [HttpPost("add")]

@@ -56,7 +56,7 @@ namespace WebApiMongoDb.DaoImpl
 
         }
 
-        public List<Book> ListByFeatures(Book b)
+        public List<Book> ListByFeatures(Book b, string orderBy)
         {
             Dictionary<string, object> features = new Dictionary<string, object>();
 
@@ -70,7 +70,12 @@ namespace WebApiMongoDb.DaoImpl
                     features.Add(be.ElementName, propertyInfo.GetValue(b));
                 }
             }
+
+            if (orderBy!=null && orderBy.Split(":").Length == 2)
+                return BookCollection.Find(new BsonDocument(features)).Sort("{"+orderBy+"}").ToList();
+
             return BookCollection.Find(new BsonDocument(features)).ToList();
+
         }
     }
 }
