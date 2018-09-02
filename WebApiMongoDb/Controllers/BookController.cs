@@ -36,6 +36,12 @@ namespace WebApiMongoDb.Controllers
             return Ok(_bookDao.ListByFeatures(b,orderBy));
         }
 
+        [HttpGet("groupBy")]
+        public IActionResult GroupBy(string columns)
+        {
+            return Ok(_bookDao.GroupBy(columns));
+        }
+
         [HttpPost("add")]
         public IActionResult Add([FromForm]Book b)
         {
