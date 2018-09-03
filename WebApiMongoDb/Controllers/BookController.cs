@@ -62,5 +62,23 @@ namespace WebApiMongoDb.Controllers
             _bookDao.Delete(id);
             return Ok();
         }
+
+        [HttpGet("totalCount")]
+        public IActionResult TotalCount()
+        {
+            return Ok(_bookDao.TotalCount());
+        }
+
+        [HttpGet("createIndex")]
+        public IActionResult CreateIndex(string column)
+        {
+            return Ok(_bookDao.CreateIndexByColumn(column));
+        }
+
+        [HttpGet("indexs")]
+        public IActionResult Indexs()
+        {
+            return Ok(_bookDao.Indexs());
+        }
     }
 }

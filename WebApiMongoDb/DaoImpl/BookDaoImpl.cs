@@ -46,6 +46,7 @@ namespace WebApiMongoDb.DaoImpl
             }
 
             BookCollection.ReplaceOne(x => x.Id == b.Id, b);
+
         }
 
         public void Delete(string id)
@@ -86,7 +87,7 @@ namespace WebApiMongoDb.DaoImpl
         {
             List<object> response = new List<object>();
             Dictionary<string, object> keys = new Dictionary<string, object>();
-            foreach (string column in columns.Split("~"))
+            foreach (string column in columns.Split(","))
             {
                 keys.Add(column, "$" + column);
             }
@@ -95,9 +96,9 @@ namespace WebApiMongoDb.DaoImpl
                 { "count", new BsonDocument("$sum", 1)  }/*,
                 { "pageCountTotal", new BsonDocument("$sum", "$pageCount")  }*/
             };
-            var agbrands = BookCollection.Aggregate().Group(grouping).ToList();
+            var groupedData = BookCollection.Aggregate().Group(grouping).ToList();
 
-            foreach (BsonDocument bd in agbrands)
+            foreach (BsonDocument bd in groupedData)
             {
                 dynamic jsonObject = new JObject();
                 foreach (KeyValuePair<string, object> entry in keys)
@@ -127,6 +128,34 @@ namespace WebApiMongoDb.DaoImpl
             //    ).ToList();
 
             //return result;
+        }
+
+        public long TotalCount()
+        {
+            return BookCollection.EstimatedDocumentCount();
+
+        }
+
+        public string CreateIndexByColumn(string column)
+        {
+            return BookCollection.Indexes.CreateOne(new CreateIndexModel<Book>("{" + column + "}"));
+        }
+
+        public object CreateIndexByColumn(string[] column)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<string> Indexs()
+        {
+            var command = new JsonCommand<BsonDocument>("{'listIndexes':'Book'}");
+            IEnumerable<BsonValue> bsonValues =
+                BookCollection.Database.RunCommand(command).AsBsonDocument["cursor"]["firstBatch"].AsBsonArray.Values;
+
+            foreach (BsonValue item in bsonValues)
+            {
+                yield return item.ToString();
+            } 
         }
     }
 }

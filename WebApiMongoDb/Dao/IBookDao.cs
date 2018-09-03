@@ -12,5 +12,13 @@ namespace WebApiMongoDb.Dao
         List<Book> ListByFeatures(Book b, string orderBy);
 
         List<object> GroupBy(string columns);
+
+        long TotalCount();
+
+        string CreateIndexByColumn(string column);
+
+        object CreateIndexByColumn(string[] column);
+
+        IEnumerable<string> Indexs();
     }
 }
