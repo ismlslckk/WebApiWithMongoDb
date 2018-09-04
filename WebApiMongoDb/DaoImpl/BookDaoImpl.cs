@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using System.Reflection; 
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization.Attributes;
@@ -136,17 +134,17 @@ namespace WebApiMongoDb.DaoImpl
 
         }
 
-        public string CreateIndexByColumn(string column)
+        public IEnumerable<string> CreateIndexByColumn(string columns)
         {
-            return BookCollection.Indexes.CreateOne(new CreateIndexModel<Book>("{" + column + "}"));
+            foreach (string column in columns.Split(","))
+            {
+                yield return BookCollection.Indexes.CreateOne(new CreateIndexModel<Book>("{" + column + "}"));
+            }
         }
 
-        public object CreateIndexByColumn(string[] column)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public IEnumerable<string> Indexs()
+        public IEnumerable<JObject> Indexs()
         {
             var command = new JsonCommand<BsonDocument>("{'listIndexes':'Book'}");
             IEnumerable<BsonValue> bsonValues =
@@ -154,7 +152,7 @@ namespace WebApiMongoDb.DaoImpl
 
             foreach (BsonValue item in bsonValues)
             {
-                yield return item.ToString();
+                yield return JObject.Parse(item.ToString());
             } 
         }
     }

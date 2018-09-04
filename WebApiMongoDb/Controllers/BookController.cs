@@ -75,6 +75,7 @@ namespace WebApiMongoDb.Controllers
             return Ok(_bookDao.CreateIndexByColumn(column));
         }
 
+
         [HttpGet("indexs")]
         public IActionResult Indexs()
         {

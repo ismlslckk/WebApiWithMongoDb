@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
+using Newtonsoft.Json.Linq;
 using WebApiMongoDb.Models;
 
 namespace WebApiMongoDb.Dao
@@ -15,10 +16,9 @@ namespace WebApiMongoDb.Dao
 
         long TotalCount();
 
-        string CreateIndexByColumn(string column);
+        IEnumerable<string> CreateIndexByColumn(string columns);
+         
 
-        object CreateIndexByColumn(string[] column);
-
-        IEnumerable<string> Indexs();
+        IEnumerable<JObject> Indexs();
     }
 }
